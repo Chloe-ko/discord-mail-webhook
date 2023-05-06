@@ -32,6 +32,7 @@ const triggerWebhook = (username, mail) => {
     require("axios").post(githubURL, payload).then((response) => {
     }).catch((err) => {
       logger.error("Error triggering Webhook:" + err);
+      logger.error(err.response);
     });
 }
 
