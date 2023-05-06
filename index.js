@@ -40,6 +40,7 @@ logger.info("IMAP Port: " + process.env.IMAP_PORT || 141);
 logger.info("IMAP Check TLS: " + (process.env.IMAP_TLS || "true"));
 logger.info("IMAP Check TLS: " + (process.env.IMAP_MARK_SEEN || "false"));
 
+
 usernames.forEach((username, index) => {
     const imap = {
         user: username,
