@@ -16,9 +16,7 @@ const triggerWebhook = (username, mail) => {
     if (!imapMarkSeen && mail.date < startTime) {
       return;
     }
-
-    require("axios").post(githubURL, {
-      content: "",
+    const payload = {
       username: username,
       embeds: [
         {
@@ -29,7 +27,8 @@ const triggerWebhook = (username, mail) => {
           description: description
         }
       ]
-    }).then((response) => {
+    };
+    require("axios").post(githubURL, payload).then((response) => {
     }).catch((err) => {
       logger.error("Error triggering Webhook:" + err);
     });
